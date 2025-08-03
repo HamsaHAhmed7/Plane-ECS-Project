@@ -1,9 +1,8 @@
-# Dockerfile.web
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY ../../plane/apps/web/package*.json ./
+COPY ../apps/web/package*.json ./
 RUN npm install
-COPY ../../plane/apps/web/ ./
+COPY ../apps/web/ ./
 RUN npm run build
 
 FROM node:18-alpine

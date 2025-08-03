@@ -1,10 +1,9 @@
-# Dockerfile.api
 FROM golang:1.22-alpine as builder
 WORKDIR /app
-COPY ../../plane/apps/api/go.mod .
-COPY ../../plane/apps/api/go.sum .
+COPY ../apps/api/go.mod .
+COPY ../apps/api/go.sum .
 RUN go mod download
-COPY ../../plane/apps/api/ ./
+COPY ../apps/api/ ./
 RUN go build -o plane-api .
 
 FROM alpine:latest
