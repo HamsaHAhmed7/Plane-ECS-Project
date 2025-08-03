@@ -1,0 +1,53 @@
+# Node.js / Yarn
+node_modules/
+apps/**/node_modules/
+.yarn/
+.pnp.*
+yarn.lock
+
+# Python (if used)
+__pycache__/
+*.pyc
+
+# Docker
+*.tar
+*.log
+docker-compose.override.yml
+.env
+.env.*
+
+# Local Docker volumes
+volumes/
+*.pid
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.auto.tfvars
+crash.log
+
+# AWS credentials (never commit these!)
+*.pem
+*.key
+*.crt
+
+# VSCode / IDE config
+.vscode/
+.idea/
+.DS_Store
+
+# OS files
+Thumbs.db
+ehthumbs.db
+*.swp
+
+# GitHub Actions runtime files
+.github/workflows/*.log
+
+# Plane specific
+plane-ecs-project/docker/.env
+apps/api/.env
+apps/web/.env
