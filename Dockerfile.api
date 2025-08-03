@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install build dependencies for common Python packages
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    libffi-dev \
+    libjpeg-dev \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY apps/api/requirements.txt .
+COPY apps/api/requirements ./requirements
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY apps/api/ .
+
+EXPOSE 4000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:4000"]
